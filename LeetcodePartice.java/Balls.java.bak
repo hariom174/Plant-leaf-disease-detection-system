@@ -1,0 +1,5 @@
+/* You have N balls and K boxes. You want to divide the N balls into K boxes such that:
+
+ Each box contains ≥1 balls.
+ No two boxes contain the same number of balls.
+ Determine if it is possible to do so.

@@ -1,0 +1,47 @@
+mport java.util.ArrayList;
+import java.util.List;
+
+class VelocityPoint {
+    double time;
+    double velocity;
+
+    public VelocityPoint(double time, double velocity) {
+        this.time = time;
+        this.velocity = velocity;
+    }
+}
+
+public class VelocityProfile {
+    private List<VelocityPoint> points;
+
+    public VelocityProfile() {
+        points = new ArrayList<>();
+    }
+
+    public void addPoint(double time, double velocity) {
+        points.add(new VelocityPoint(time, velocity));
+    }
+
+    public double getVelocityAtTime(double time) {
+        for (int i = 0; i < points.size() - 1; i++) {
+            VelocityPoint p1 = points.get(i);
+            VelocityPoint p2 = points.get(i + 1);
+            if (time >= p1.time && time < p2.time) {
+                double t = (time - p1.time) / (p2.time - p1.time);
+                return p1.velocity + t * (p2.velocity - p1.velocity);
+            }
+        }
+        return 0; // Default velocity if time is out of range
+    }
+
+    public static void main(String[] args) {
+        VelocityProfile profile = new VelocityProfile();
+        profile.addPoint(0, 0);
+        profile.addPoint(1, 10);
+        profile.addPoint(2, 5);
+        
+        double time = 1.5;
+        double velocity = profile.getVelocityAtTime(time);
+        System.out.println("Velocity at time " + time + " is " + velocity);
+    }
+}

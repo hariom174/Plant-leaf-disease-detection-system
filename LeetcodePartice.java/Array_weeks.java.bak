@@ -1,0 +1,38 @@
+/* Given the number of problems he actually solved in each week over 4 weeks as P1,P2,P3,and P4,
+    output the number of weeks in which Chef met his target.
+	-> Chef decides to solve at least 10 problems every week for 4 weeks. */
+
+import java.util.Scanner;
+class weeks
+{
+	protected weeks()
+	{
+		Scanner in=new Scanner(System.in);
+		int[] p=new int[4];
+		int c=0;
+		for(int i=0;i<4;i++)
+		{
+			p[i]=in.nextInt();
+			if(p[i]>=10)
+			{
+				c++;
+			}
+		}
+		System.out.println(c);
+	}
+}
+class Problem extends weeks
+{
+	public Problem()
+	{
+	     super();
+	}
+}
+public class Array_weeks
+{
+	public static void main(String[]args)
+	{
+		
+		Problem p1=new Problem();
+	}
+}

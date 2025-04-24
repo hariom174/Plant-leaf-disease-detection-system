@@ -1,0 +1,30 @@
+/* Given an array of integers nums and an integer target, return indices of the two numbers such 
+  that they add up to target.
+  You may assume that each input would have exactly one solution, and you may not use the same 
+  element twice. */
+
+import java.util.Scanner;
+
+public class Leetcode1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the number:");
+        int n = in.nextInt();
+        int arr[] = new int[n];
+        int target = 0;
+
+        System.out.println("Enter the array of elements:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == target) {
+					int a[]={i,j};
+					System.out.println("Two Sum array problem: " + arr[i] + " + " + arr[j] + " = " + target);
+                }
+            }
+		}
+    }
+}

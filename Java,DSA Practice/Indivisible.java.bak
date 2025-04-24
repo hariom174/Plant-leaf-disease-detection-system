@@ -1,0 +1,45 @@
+/* Alice thinks Bob has very weak math skills.Alice gave Bob three numbers A,B, and C and challenged him to find 
+   any positive integer K strictly less than 100 such that none of the three numbers are divisible by K.
+   Help Bob find one such integer K. Note that there can be multiple correct values for K, you need to output 
+   just one.Under the given constraints, a valid K will always exist. */
+   
+import java.util.Scanner;
+import java.util.ArrayList;
+class Indivisible
+{
+	public static ArrayList<Integer> ChallengeCalucate(int a,int b,int c)
+	{
+		ArrayList<Integer> res=new ArrayList<>();
+		if(a==0)
+		{
+			res.add(0);
+		}
+		else
+		{
+		     for(int i=1;i<=100;i++)
+		     {
+			     if((a%i!=0) && (b%i!=0) && (c%i!=0))
+			     {
+				     res.add(i);
+				     break;
+				 }
+			}
+		}
+	
+	}
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int a=in.nextInt();
+		System.out.println("Enter the second number:");
+		int b=in.nextInt();
+		System.out.println("Enter the third number:");
+		int c=in.nextInt();
+		
+		Indivisible x=new Indivisible();
+		ArrayList<Integer> result=x.ChallengeCalucate(a,b,c);
+		System.out.println(result);
+		
+	}
+}

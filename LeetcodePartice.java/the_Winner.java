@@ -1,0 +1,40 @@
+/*  There is a contest containing 2 problems A and B.2 strong participants P and Q participated in the contest 
+    and solved both the problems.P made AC submissions on problems A and B at time instants PA and PB
+    respectively while Q made AC submissions on problems A and B at time instants QA and QB .
+    It is given that the time penalty is the minimum time instant at which a participant has solved both the 
+    problems. Also the participant with the lower time penalty will have a better rank.
+    Determine which participant got the better rank or if there is a TIE. */
+	
+import java.util.Scanner;
+
+public class Winner {
+    public String GameContest(int p1, int p2, int Q1, int Q2) {
+        int max1 = Math.max(p1, p2);
+        int max2 = Math.max(Q1, Q2);
+        if (max1 < max2) {
+            return "P";
+        } else if (max1 > max2) {
+            return "Q";
+        } else if (max1 == max2) {
+            return "Tie";
+        } else {
+            return "0";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the first number:");
+        int p1 = in.nextInt();
+        System.out.println("Enter the Second number:");
+        int p2 = in.nextInt();
+        System.out.println("Enter the third number:");
+        int Q1 = in.nextInt();
+        System.out.println("Enter the fourth number:");
+        int Q2 = in.nextInt();
+
+        Winner w = new Winner();
+        String S = w.GameContest(p1, p2, Q1, Q2);
+        System.out.println(S);
+    }
+}

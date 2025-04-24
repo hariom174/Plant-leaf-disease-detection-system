@@ -1,0 +1,60 @@
+/* Professor Snape has lots of potions. Bottles containing all types of potions are stacked on shelves which 
+   cover the entire wall from floor to ceiling. Professor Snape has broken his bones several times while 
+   climbing the top shelf for retrieving a potion. He decided to get a ladder for him. But he has no time to 
+   visit Diagon Alley. So he instructed Ron Weasley to make a ladder for him. Professor Snape specifically 
+   wants a step ladder which looks like an inverted 'V' from side view.
+   Professor just mentioned two things before vanishing-
+   B - separation between left side (LS) and right side (RS) on the ground
+   LS - the length of left side
+   What should be the length of RS? At one extreme LS can be vertical and at other RS can be vertical. Ron is 
+   angry and confused. Since Harry is busy battling Voldemort, its your duty to help him find the minimum and 
+   maximum length of RS. */
+   
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class StepLadder 
+{
+    double x;
+    double y;
+
+    public StepLadder(double x, double y) 
+	{
+        this.x = x;
+        this.y = y;
+    }
+
+    public double Professor1() 
+	{
+        return Math.sqrt(Math.abs(x * x + y * y));
+    }
+	public double Professor2()
+	{
+		return Math.sqrt(Math.abs(x*x-y*y));
+	}
+
+    public static void main(String[] args) 
+	{
+        Scanner scanner = new Scanner(System.in);
+        List<StepLadder> ladders = new ArrayList<>();
+
+        // Assuming you want to read the values for x and y from the user
+        System.out.print("Enter the value for x: ");
+        double x = scanner.nextDouble();
+        System.out.print("Enter the value for y: ");
+        double y = scanner.nextDouble();
+
+        StepLadder ladder = new StepLadder(x, y);
+        ladders.add(ladder);
+		ladders.add(ladder);
+
+        // You can access the values in the list like this
+        for (StepLadder stepLadder : ladders) 
+		{
+            System.out.println("Hypotenuse: " + stepLadder.Professor1());
+			System.out.println("Hypotenuse: "+ stepLadder.Professor2());
+        }
+    }
+}
+

@@ -1,0 +1,46 @@
+/* Chef has started studying for the upcoming test. The textbook has N pages in total. Chef wants to 
+   read at most X pages a day for Y days. */
+   
+import java.util.Scanner;
+public class Book_pages
+{
+	private int n;// number of book pages
+	private int x;//reads of book pages
+	private int y;//total pages of books in me
+	
+	private Book_pages(int n,int x,int y)
+	{
+		this.n=n;//This is a instance varible//n=n
+		this.x=x;
+		this.y=y;
+	}
+	void dispaly()
+	{
+		if(n<=x*y)//5<=3,5*3=15,total number of pages
+		{
+			System.out.println("Yes");
+		}
+		else
+		{
+			System.out.println("No");
+		}
+	}
+}
+	public class Book
+	{
+		public static void main(String[]args)
+		{
+			Scanner in=new Scanner(System.in);
+			System.out.println("Enter the number of book:");
+			int n=in.nextInt();
+			System.out.println("Enter the x number of reading book:");
+			int x=in.nextInt();
+			System.out.println("Enter the days of book:");
+			int y=in.nextInt();
+			
+			Book_pages b=new Book_pages(n,x,y);
+			System.out.println(b.dispaly());
+		}
+	}
+
+

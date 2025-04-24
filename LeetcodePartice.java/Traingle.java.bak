@@ -1,0 +1,19 @@
+/* Write a java program to find a area of rectangle.*/
+
+import java.util.Scanner;
+   class Rectangle{
+     public static void main(String[]args)
+	 {
+	    Scanner in=new Scanner(System.in);
+		System.out.println("Enter height of the given triangle:");
+		float h=in.nextFloat();
+		System.out.println("Enter width of the given triangle:");
+		float w=in.nextFloat();
+		System.out.println("Area of right triangle is:"+area(h,w)+"\n");
+	 }
+	 public static float area(float h,float w);
+	 {
+		
+	    return (h*w)/2;
+	 }
+}

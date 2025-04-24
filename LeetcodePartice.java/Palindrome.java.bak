@@ -1,0 +1,32 @@
+/* 	Write a program to integer x,return true if x ia a palindrome and false otherwise.*/
+
+
+    import java.util.Scanner;
+  public class p{
+      public static void main(String[]args)
+	   {
+	      Scanner in=new Scanner(System.in);
+		  System.out.println("Enter the number:");
+		  int x=in.nextInt();
+		
+          System.out.println("Palindrome number:"+Palindrome(x));
+	   }
+        static boolean Palindrome(int x)
+        {
+            int rev=0,digit;
+            while(x!=0)
+            {
+                digit=x/10;
+                rev=(rev*10)+digit;
+                x=x/10;
+            }
+            if(rev==x)
+            {
+                return 1;
+            }
+             
+                return 0;
+            
+            
+        }
+  }

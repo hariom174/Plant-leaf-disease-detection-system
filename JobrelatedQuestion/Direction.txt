@@ -1,0 +1,2 @@
+/* Given a route containing 4 direction (E,W,N,S) , find the shortest path to reach destination .
+    ''WNEENESENNN" */

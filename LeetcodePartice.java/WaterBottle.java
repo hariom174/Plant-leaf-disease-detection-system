@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Bottle
+{
+   public static void main(String[]args)
+   {
+      System.out.println("Enter the number:");
+	  Scanner in=new Scanner(System.in);
+	  int x=in.nextInt();
+	  
+	  if(x<=2000)
+	  {
+	     System.out.println("Yes");
+	  }
+	  else
+	  {
+	     System.out.println("No");
+	  }
+   }
+}

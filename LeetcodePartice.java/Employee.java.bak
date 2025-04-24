@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Employee
+{
+    private int id;
+	private String name;
+	private long acount;
+	private double bal;
+	
+	public Employee(int id,String name,long acount,double bal)
+	{
+	   this.id=id;
+	   this.name=name;
+	   this.acount=acount;
+	   this.bal=bal;
+	}
+	public void getbal()
+	{
+	   System.out.println(acount+bal);
+	}
+	public static void main(String[]args)
+	{
+	   Employee obj=new Employee(123,"Hariom",1000.0,500);
+	   obj.getbal();
+	   
+	}
+	
+}

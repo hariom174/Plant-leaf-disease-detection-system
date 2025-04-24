@@ -1,0 +1,51 @@
+/* Chef has bought a new robot, which will be used for delivering dishes to his customers. He started testing 
+   the robot by letting it move on a line.
+   Initially, the robot is placed at the coordinate x=X. Then, it should execute a sequence of N commands, 
+   described by a string S with length N. Each character of this string is either 'L' or 'R', denoting that the 
+   robot should walk one step to the left (decreasing x by 1) or to the right (increasing x by 1), respectively.
+   How many distinct points are visited by the robot when it has executed all the commands? A point p is visited
+   by the robot if p is an integer and the robot's position before or after executing some command is x=p. */
+
+import java.util.Scanner;
+import java.util.Arrays;
+public class Testing_Robot
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the x-array of elements:");
+		int n=in.nextInt();
+		System.out.println("Enter the y-array of elements:");
+		int m=in.nextInt();
+		int x=n;
+		int arr[]=new int[n+1];
+		String s=in.next();
+		
+		for(int i=0;i<n;i++)
+		{
+			if(s.charAt(i)=='L')
+			{
+				m++;
+				arr[i]=m;
+			}
+			else if(s.charAt(i)=='R')
+			{
+				m--;
+				arr[i]=m;
+			}
+		}
+		arr[n]=x;
+	    Arrays.sort(arr);
+		int count=0;
+		for(int i=1;i<=n;i++)
+		{
+			if(arr[i-1]==arr[i])
+			{
+				count++;
+			}
+		}
+		System.out.println(n+1-count);
+	}
+}
+
+

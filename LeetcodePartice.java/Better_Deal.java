@@ -1,0 +1,42 @@
+/* There are 2 stores in Chefland and both sell the same product. The first store sells the product for 
+   100 rupees whereas the second store sells it for 200 rupees.
+   It is the holiday season and both stores have announced a special discount. The first store is providing a 
+   discount of A percent on its product and the second store is providing a discount of B percent on its product. */
+   
+import java.util.Scanner;
+
+class Rupees {
+    public String BetterDeal(int x, int y) {
+        int a = 100 - x;
+        int b = 200 - (y * 2);
+        if (a < b) {
+            return "First";
+        } else if (a > b) {
+            return "Second";
+        } else {
+            return "Both";
+        }
+    }
+}
+
+class Discount extends Rupees {
+    @Override
+    public String BetterDeal(int x, int y) {
+        return super.BetterDeal(x, y);
+    }
+}
+
+class Better_Deal {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the first product:");
+        int x = in.nextInt();//10
+        System.out.println("Enter the second product:");
+        int y = in.nextInt();//60
+        Discount d = new Discount();
+        String result = d.BetterDeal(x, y);
+        System.out.println(result);
+    }
+}
+
+

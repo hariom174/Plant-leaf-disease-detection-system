@@ -1,0 +1,47 @@
+/* There are two problems in a contest.(1).Problem A is worth 500 points at the start of the contest.
+   (2).Problem B is worth 1000 points at the start of the contest.
+   Once the contest starts, after each minute:Maximum points of Problem A reduce by 2 points .Maximum points of 
+   Problem B reduce by 4 points.It is known that Chef requires X minutes to solve Problem A correctly and 
+   Y minutes to solve Problem B correctly. */
+
+import java.util.Scanner;
+public class A_B
+{
+	private int x;
+	private int y;
+	private A_B(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+		
+	}
+	private void Start_Contest()
+	{
+		int a=500-(x*2);
+		int b=1000-((y+x)*4);
+		int c=1000-(y*4);
+		int d=500-((y+x)*2);
+		
+		if((a+b)>=(c+d))
+		{
+			System.out.println(a+b);
+		}
+		else
+		{
+			System.out.println(c+d);
+		}
+		
+	}
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first contest:");
+		int x=in.nextInt();
+		System.out.println("Enter the second contest:");
+		int y=in.nextInt();
+		
+		A_B t=new A_B(x,y);
+		t.Start_Contest();
+	}
+}
+

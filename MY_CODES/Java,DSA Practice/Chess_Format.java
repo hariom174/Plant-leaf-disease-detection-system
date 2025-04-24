@@ -1,0 +1,63 @@
+/* Given the time control of a chess match as a+b, determine which format of chess out of the given 4 it belongs 
+   to. 
+   1) Bullet if a+b<3 , 2) Blitz if 3≤a+b≤10 , 3) Rapid if 11≤a+b≤60 , 4) Classical if 60<a+b */
+
+
+import java.util.Scanner;
+import java.util.ArrayList;
+class ChessTime
+{
+    private int totalTime;
+
+    public ChessTime() 
+	{
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the total time for the chess match a :");
+        int a = in.nextInt();
+		System.out.println("Enter the total time for the chess match b :");
+        int b = in.nextInt();
+        totalTime = a + b;
+    }
+
+    public int TotalTime() 
+	{
+        return totalTime;
+    }
+}
+
+class Chess extends ChessTime 
+{
+    private ArrayList<Integer> res = new ArrayList<>();
+
+    public Chess() 
+	{
+        super();
+        int totalTime = TotalTime();
+
+        if (totalTime < 3) 
+		{
+            res.add(1);
+        } else if (totalTime >= 3 && totalTime <= 10) 
+		{
+            res.add(2);
+        } else if (totalTime >= 11 && totalTime <= 60) {
+            res.add(3);
+        } else {
+            res.add(4);
+        }
+    }
+
+    public void printFormats() 
+	{
+        System.out.println("Chess Formats: " + res);
+    }
+}
+
+public class Chess_Format 
+{
+    public static void main(String[] args) 
+	{
+        Chess ch= new Chess();
+        ch.printFormats();
+    }
+}

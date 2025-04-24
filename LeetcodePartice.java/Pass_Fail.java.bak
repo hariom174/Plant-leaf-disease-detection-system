@@ -1,0 +1,33 @@
+/* The test has a total of N questions, each question carries 3 marks for a correct answer and −1 for an 
+   incorrect answer. Chef is a risk-averse person so he decided to attempt all the questions. It is known that 
+   Chef got X questions correct and the rest of them incorrect. For Chef to pass the course he must score at 
+   least P marks. */
+
+import java.util.Scanner;
+public class Pass_Fail
+{
+	public static String QuestionMarks(int n,int x,int y)
+	{
+		int d=n-x;//sub
+		if((x*3)-d>=y)
+		{
+			return "Pass";
+		}
+		else
+		{
+			return "Fail";
+		}
+	}
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first question:");
+		int n=in.nextInt();
+		System.out.println("Enter the second question:");
+		int x=in.nextInt();
+		System.out.println("Enter the third question:");
+		int y=in.nextInt();
+		
+		QuestionMarks(n,x,y);
+	}
+}

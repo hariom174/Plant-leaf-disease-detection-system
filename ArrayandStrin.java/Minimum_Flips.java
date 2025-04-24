@@ -1,0 +1,51 @@
+/* Chef has an array A of length N consisting of 1 and −1 only.In one operation, Chef can choose any index 
+   (1≤i≤N) and multiply the element Ai by −1.Find the minimum number of operations required to make the sum of 
+   the array equal to 0. Output -1 if the sum of the array cannot be made 0. */
+
+import java.util.Scanner;
+
+class Operation
+{
+    int n;
+
+    public Operation(int n) 
+	{
+        this.n = n;
+    }
+}
+
+class SumofMinimum extends Operation 
+{
+    public SumofMinimum(int n) 
+	{
+        super(n);
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the no of array element:");
+        this.n = in.nextInt();
+        int arr[] = new int[n];
+        int sum = 0;
+
+        System.out.println("Enter the x-array of element:");
+        for (int i = 0; i < n; i++) 
+		{
+            arr[i] = in.nextInt();
+            sum = sum + arr[i];
+        }
+        if (sum % 2 == 0) 
+		{
+            System.out.println(Math.abs(sum / 2));
+        } else 
+		{
+            System.out.println("-1");
+           
+        }
+    }
+}
+
+class Minimum_Flips 
+{
+    public static void main(String[] args) 
+	{
+        SumofMinimum s = new SumofMinimum(0); // Pass any integer argument here
+    }
+}

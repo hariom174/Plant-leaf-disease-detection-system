@@ -1,0 +1,53 @@
+ /* Tonmoy has a special torch. The torch has 4 levels numbered 1 to 4 ,4 and  2 states (On and Off).
+ Levels 1,2 and 3 correspond to the On state while level 4 corresponds to the Off state. */
+ 
+import java.util.Scanner;
+public class Torch
+{
+    private int n;
+	private int k;
+	
+	private Torch(int n,int k)
+	{
+		this.n=n;
+		this.k=k;
+	}
+	
+	void display()
+	{
+		if(k==1)
+		{
+			if(n%4==0)
+			{
+				System.out.println("ON");
+			}
+			else
+			{
+				System.out.println("Ambiguous");
+			}
+		}
+		else
+		{
+			if(n%4==0)
+			{
+				System.out.println("OFF");
+			}
+			else
+			{
+				System.out.println("On");
+			}
+		}
+	}
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int n=in.nextInt();
+		System.out.println("Enter the second number:");
+		int k=in.nextInt();
+		
+		Torch t1=new Torch(n,k);
+		t1.display();
+	}
+
+}

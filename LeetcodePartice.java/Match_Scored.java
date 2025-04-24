@@ -1,0 +1,44 @@
+/* Given the goals scored by both the teams as X and Y respectively, determine whether Chef will 
+   like the match or not .
+ 
+x=At least one goals has ;x>=1
+the match end in a draw x==y;
+*/
+
+import java.util.Scanner;
+class Scored
+{
+	public int x;
+	public int y;
+	public Scored(int x,int y)
+	{
+	  this.x=x;
+	  this.y=y;
+	}
+	void display()
+	{
+		if(x>=1 && x==y)
+		{
+			System.out.println("Yes");
+		}
+		else
+		{
+			System.out.println("No");
+		}
+	}
+}
+	public class Match_Scored
+	{
+		public static void main(String[]args)
+		{
+			Scanner in=new Scanner(System.in);
+			System.out.println("Enter the number:");
+			int x=in.nextInt();
+			System.out.println("Enter the number:");
+			int y=in.nextInt();
+			
+			Scored s=new Scored(x,y);
+			s.display();
+		}
+	}
+

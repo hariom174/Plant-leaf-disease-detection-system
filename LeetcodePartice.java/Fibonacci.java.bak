@@ -1,0 +1,35 @@
+/* Write a java to calculate the nth Fibonacci number. */
+
+import java.util.Scanner;
+public class Fibonacci
+{
+   private int p;
+   
+   private Fibonacci(int n)
+   {
+      this.p=n;
+   }
+   private void getdisplay()
+   {
+      int sum;
+	  int a=0,b=1;
+	  
+	  for(int i=1;i<=n;i++)
+	  {
+	      sum=a+b;
+		  a=b;
+		  b=a;
+		  a=sum;
+	  }
+	  System.out.println("Nth number of Fibonacci:"+a);
+   }
+   public static void main(String[]args)
+   { 
+      Scanner in=new Scanner(System.in);
+	  System.out.println("Enter the fibonacci number:");
+	  int p=in.nextInt();
+	  
+	  Fibonacci obj=new Fibonacci(p);
+	  obj.getdisplay();
+   }
+}

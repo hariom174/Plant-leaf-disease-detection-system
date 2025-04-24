@@ -1,0 +1,41 @@
+/* Write a program to accept a coordinate point in a XY coordinate point in a XY coordinate system
+   and determine its quardrant.*/
+   
+  import java.util.Scanner;
+    public class Coordinate{
+	  public static void main(String[]args)
+	  {
+	     Scanner in=new Scanner(System.in);
+		 System.out.println("Enter the value of x and y:");
+		 int x=in.nextInt();
+		 System.out.println("Enter the value of X and Y:");
+		 int y=in.nextInt();
+		 System.out.println("Coordinate is "+Point(x,y));
+	  }
+	  static int point(int x,int y)
+	  {
+	    if(x>0 && y>0)
+        {
+            System.out.println("It is a first Coordinate is (+,+)");
+        }
+        else if(x>0 && y<0)
+        {
+            System.out.println("It is a second Coordinate is (+,-)");
+        }
+        else if(x<0 && y<0)
+        {
+            System.out.println("It is third Coordinate is (-,-)");
+        }
+        else if(x<0 && y>0)
+        {
+            System.out.println("It is fourth Coordinate is (-,+)");
+        }
+        else
+        {
+            System.out.println("It is not a Coordinate equation:");
+        }
+           return coordinate;
+    }
+}
+
+	  

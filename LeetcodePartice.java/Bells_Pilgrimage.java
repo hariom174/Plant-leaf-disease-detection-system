@@ -1,0 +1,74 @@
+/* The Child of Prophecy has embarked on a journey to save the land of the Fae.On her journey, she must ring  
+   N Bells of Pilgrimage.The Child of Prophecy has an initial mana level of P. After that: 
+   Each of the first X bells she rings will increase her mana level by 10.
+   Each of the remaining bells will increase her mana level by 5 As a bonus, once the final bell is rung, her 
+   mana level will increase by a further 20.
+   K bells have been rung so far. What is the current mana level of the Child of Prophecy? */
+   
+import java.util.Scanner;
+
+class Prophecy 
+{
+    int x;
+    int y;
+    int z;
+    int level;
+
+    public Prophecy(int x, int y, int z, int level) 
+	{
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.level = level;
+    }
+
+    class Bells extends Prophecy 
+	{
+        public Bells(int x, int y, int z, int level) {
+            super(x, y, z, level);
+
+            for (int i = z; i > 0; i--) 
+			{
+                if (x == i) 
+				{
+                    level += 25;
+                } else if (y < i) 
+				{
+                    level += 5;
+                } else if (y <= i) 
+				{
+                    level += 10;
+                }
+            }
+            System.out.println("She must ring " + level + " Bells of Pilgrimage");
+        }
+    }
+
+    class Remaining extends Bells 
+	{
+        public Remaining(int x, int y, int z, int level) 
+		{
+            super(x, y, z, level);
+        }
+    }
+}
+
+public class Bells_Pilgrimage 
+{
+    public static void main(String... args) 
+	{
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the first bells number:");
+        int x = in.nextInt();
+        System.out.println("Enter the second bells number:");
+        int y = in.nextInt();
+        System.out.println("Enter the third bells number:");
+        int z = in.nextInt();
+        System.out.println("Enter the fourth bells number:");
+        int level = in.nextInt();
+
+        Prophecy prophecy = new Prophecy(x, y, z, level);
+		/*It is passing the parameters x, y, z, and level to the constructor of the inner class.*/
+        Prophecy.Bells bells = prophecy.new Bells(x, y, z, level);
+    }
+}

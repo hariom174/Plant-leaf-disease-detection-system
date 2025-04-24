@@ -1,0 +1,46 @@
+/* Given a list of N contest codes, where each contest code is either START38 or LTIME108, help Chef 
+   count how many problems were featured in each of the contests. */
+
+import java.util.Scanner;
+class Recent
+{
+	protected Recent()
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number:");
+		int n=in.nextInt();
+		String str[]=new String[n];
+		
+		for(int i=0;i<n;i++)
+		{
+			str[i]=in.next();
+		}
+		int str1=0;
+		int str2=0;
+		for(i=0;i<n;i++)
+		{
+			if(str[i].equals("START38"))
+			{
+				str1++;
+			}
+			else if(str[i].equals("LTIME108"))
+			{
+				str2++;
+			}
+		}
+	      System.out.println(str1+" "+str2);
+	}
+}
+class Problems extends Recent
+{
+	public Problems(){
+		super();
+	}
+}
+public class Recent_String
+{
+	public static void main(String[]args)
+	{
+		Problems p=new Problems();
+	}
+}

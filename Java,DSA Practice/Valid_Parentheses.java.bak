@@ -1,0 +1,67 @@
+/* Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string 
+   is valid.
+   An input string is valid if:
+   Open brackets must be closed by the same type of brackets.
+   Open brackets must be closed in the correct order.
+   Every close bracket has a corresponding open bracket of the same type. */
+   
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.InputMismatchException;
+
+class Parentheses extends Exception 
+{
+    public Parentheses(String message) 
+	{
+        super(message);
+    }
+}
+
+class Valid 
+{
+	 public boolean isValid(String s) throws Parentheses 
+	 {
+          Stack<Character> res = new Stack<Character>();
+
+        for (char c : s.toCharArray()) 
+		{
+			if (c == '(') 
+			{
+				res.push(')');
+		    }
+			else if (c == '{') 
+			{
+				res.push('}');
+            }
+			else if (c == '[') 
+			{
+				res.push(']');
+            } 
+			else if (res.isEmpty() || res.pop() != c) 
+			{
+				return false;
+            }
+    }
+              return res.isEmpty();
+     
+	 }
+
+}
+
+public class Valid_Parentheses 
+{
+    public static void main(String... args) 
+	{
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the parentheses string:");
+        String s = in.next();
+
+        try {
+            Valid v = new Valid();
+            boolean result = v.isValid(s);
+            System.out.println("Is Valid: " + result);
+        } catch (Parentheses e) {
+               System.out.println("Error: " + e.getMessage());
+       }
+    }
+}

@@ -1,0 +1,37 @@
+/* Write a program to count the odd number of occurrence of a specific elements in an number.*/
+
+import java.util.Scanner;
+ class Odd_number{
+    static int Count(int a,int b)
+	{
+	     if(a>b)
+		 {
+		 return 0;
+		 }
+		 
+		 return a+Count(a+2,b);
+	}
+	public static void main(String[]args)
+	{
+	    
+		Scanner in=new Scanner(System.in);
+		int a;
+		System.out.println("Enter the number:");
+		int b=in.nextInt();
+		int n=in.nextInt();
+		
+        
+		
+		if(a%2!=0)
+		{ 
+		  System.out.println("odd number:");
+		}
+		else
+		{
+          System.out.println("Not odd");
+		}
+		
+		System.out.println("Sum of odd number:"+Count(a,b,n));
+	 }
+	
+}

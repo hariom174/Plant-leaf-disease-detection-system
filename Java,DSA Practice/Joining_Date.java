@@ -1,0 +1,75 @@
+/* N candidates (numbered from 1 to N) join Chef's firm. The first 5 candidates join on the first day, and then, on 
+   every subsequent day, the next 5 candidates join in.For example, if there are 12 candidates, candidates numbered 1 to 
+   5 will join on day 1, candidates numbered 6 to 10 on day 2 and the remaining 2 candidates will join on day 3.
+   Candidate numbered K decided to turn down his offer and thus, Chef adjusts the position by shifting up all the higher
+   numbered candidates. This leads to a change in the joining day of some of the candidates.
+   Help Chef determine the number of candidates who will join on a different day than expected. */
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Candidate {
+    int n;
+    int k;
+
+    public Candidate(int n, int k) {
+        this.n = n;
+        this.k = k;
+    }
+
+    int getN() {
+        return n;
+    }
+
+    int getK() {
+        return k;
+    }
+}
+
+class Message extends Exception {
+    public Message(String message) {
+        super(message);
+    }
+}
+
+interface Joining {
+    ArrayList<Integer> subsequentDays() throws Message;
+}
+
+class NumberOfDate extends Candidate implements Joining {
+    public NumberOfDate(int n, int k) {
+        super(n, k);
+    }
+
+    @Override
+    public ArrayList<Integer> subsequentDays() throws Message {
+        ArrayList<Integer> res = new ArrayList<>();
+        if ((n % 5 == 0) && (k % 5 != 0)) {
+            res.add(n / 5 - k / 5 - 1);
+        } else if ((n % 5 != 0) && (k % 5 == 0)) {
+            res.add(n / 5 - k / 5 + 1);
+        } else {
+            res.add(n / 5 - k / 5);
+        }
+        return res;
+    }
+}
+
+public class Joining_Date {
+    public static void main(String... args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the first number:");
+        int n = in.nextInt();
+        System.out.println("Enter the second number:");
+        int k = in.nextInt();
+
+        NumberOfDate d = new NumberOfDate(n, k);
+
+        try {
+            ArrayList<Integer> date = d.subsequentDays();
+            System.out.println("Joining dates: " + date);
+        } catch (Message e) {
+            System.out.println("Message: " + e.getMessage());
+        }
+    }
+}

@@ -1,0 +1,54 @@
+/* Alice has a bucket of water initially having W litres of water in it. The maximum capacity of the
+   bucket is  X liters.
+   Alice turned on the tap and the water starts flowing into the bucket at a rate of Y litres/hour. 
+   She left the tap running for exactly Z hours. Determine whether the bucket has been overflown,
+   filled exactly, or is still left unfilled. */
+  
+import java.util.Scanner;
+class Bucket
+	{
+		public Bucket()
+		{
+			Scanner in=new Scanner(System.in);
+			System.out.println("Enter the first number:");
+			int x=in.nextInt();//10
+			System.out.println("Enter the second number:");
+			int y=in.nextInt();//70
+			System.out.println("Enter the thirds number:");
+			int z=in.nextInt();//10
+			System.out.println("Enter the fourth number:");
+			int w=in.nextInt();//6
+			
+			if((x+z*w)>y)
+			{
+				System.out.println("overflown");
+			}
+			else if((x+z*w)==y)
+			{
+				System.out.println("filled");
+			}
+			else if((x+z*w)<y)
+			{
+				System.out.println("Unfilled");
+			}
+			else if((x+z*w)>y)
+			{
+				System.out.println("overflown");
+			}
+		}
+	}
+
+class  Water extends Bucket
+{
+	public Water()
+	{
+		super();
+	}
+}
+public class Bucket_WaterFlow
+{
+	public static void main(String[]args)
+	{
+		Water f=new Water();
+	}
+}

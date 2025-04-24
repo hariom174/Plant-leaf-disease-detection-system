@@ -1,0 +1,46 @@
+/* Chef has 3 numbers A,B and C.Chef wonders if it is possible to choose exactly two numbers out of the 
+   three numbers such that their sum is odd. */
+   
+import java.util.Scanner;
+public class Odd_Sum_Pair
+{
+	private int x;
+	private int y;
+	private int z;
+	private Odd_Sum_Pair(int x,int y,int z)
+	{
+		this.x=x;
+		this.y=y;
+		this.z=z;
+	}
+	private void display()
+	{
+		int a=x+y;
+		int b=y+z;
+		int c=z+x;
+		
+		if((a%2!=0) || (b%2!=0) || (c%2!=0))
+		{
+			System.out.println("Yes");
+		}
+		else
+		{
+			System.out.println("No");
+		}
+	}
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int x=in.nextInt();
+		System.out.println("Enter the second number:");
+		int y=in.nextInt();
+		System.out.println("Enter the third number:");
+		int z=in.nextInt();
+		
+		Odd_Sum_Pair O=new Odd_Sum_Pair(x,y,z);
+		O.display();
+	}
+}
+
+

@@ -1,0 +1,49 @@
+/* Chef has three water bottles. At any point, if at least two of them are empty, she will fill them up.
+   But if at most one bottle is empty, she will wait, and not fill them up now. 
+   You are given three integers - B1,B2,and B3.
+   If B1=1, it means that the first bottle is full.
+   If B1=0, it means that the first bottle is empty. */
+ 
+import java.util.Scanner;
+class water
+{
+	public String Bottle(int b1,int b2,int b3)
+	{
+		if((b1+b2+b3)<2)
+		{
+			return "Water filling time";
+		}
+		else
+		{
+			return "Not now";
+		}
+	}
+}
+class Water_Filling extends water
+{
+	@Override
+	public int Bottle(int b1,int b2,int b3)
+	{
+		return super.Bottle(b1,b2,b3);
+	}
+}
+class EmptyBorder
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first bottle:");
+		int b1=in.nextInt();
+		System.out.println("Enter the second bottle:");
+		int b2=in.nextInt();
+		System.out.println("Enter the third bottle:");
+		int b3=in.nextInt();
+		
+		Water_Filling w=new Water_Filling();
+		String result = w.Bottle(b1, b2, b3);
+        System.out.println("Result: " + result);
+
+	}
+	
+}
+

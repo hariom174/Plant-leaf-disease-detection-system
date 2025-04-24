@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Best_Coupon
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number:");
+		int x=in.nextInt();
+		int y=x/10;
+		if(y>100)
+		{
+			System.out.println(y);
+		}
+		else
+		{
+			System.out.pritln("100");
+		}
+	}
+	
+}

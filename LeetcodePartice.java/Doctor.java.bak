@@ -1,0 +1,41 @@
+ /* The doctor prescribed Chef to take a multivitamin tablet 3 times a day for the next X days.
+    Chef already has Y multivitamin tablets.Determine if Chef has enough tablets for these X days 
+	or not. */
+	
+import java.util.Scanner;
+// this is my superclass and parent class
+class Days
+{
+	protected Days(int X,int y)
+	{
+		if((x*3)<=y)
+		{
+			System.out.println("Yes");
+		}
+		else
+		{
+			System.out.println("No");
+		}
+	}
+}
+// This is my subclass and parent class
+class Tablets extends Days
+{
+	public Tablets(int x,int y)
+	{
+	   super(x,y);
+	}
+}
+public class Doctor
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter x days:");
+		int x=in.nextInt();
+		System.out.println("Enter the y tablets:");
+		int y=in.nextInt();
+		
+		Tablets t=new Tablets(x,y);
+	}
+}

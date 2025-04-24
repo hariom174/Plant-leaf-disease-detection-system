@@ -1,0 +1,85 @@
+/* Chef has two ranges [A,B] and [C,D]. Chef needs to find the number of integers that belong to at least one of 
+   the ranges.
+   Note: A range [P,Q] contains all the integers {P,P+1,P+2,…,Q−1,Q}. */
+   
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+class CustomException extends Exception 
+{
+/*This constructor takes a String parameter named message*/
+    public CustomException(String message) 
+	{
+/*This line calls the constructor of the superclass (Exception in this case) with the provided message*/
+        super(message);
+    }
+}
+
+class MyCollection {
+    private List<Integer> myList;
+
+    // Constructor
+    public MyCollection() {
+        myList = new ArrayList<>();
+    }
+
+    // Method to add to the collection
+    public void addToCollection(int value) {
+        myList.add(value);
+    }
+
+    // This is the method name. The Java naming convention for getter methods, which typically start with "get"
+    public List<Integer> getCollection() {
+        return myList;
+    }
+}
+
+// Inheritance: A derived class extending MyCollection
+class MyDerivedCollection extends MyCollection {
+    // Additional methods or overrides can be added here
+}
+
+public class Two_Ranges{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int count = 0;
+
+        try {
+            System.out.println("Enter first integers:");
+            int a = in.nextInt();
+			System.out.println("Enter second integers:");
+            int b = in.nextInt();
+			System.out.println("Enter third integers:");
+            int c = in.nextInt();
+			System.out.println("Enter four integers:");
+            int d = in.nextInt();
+
+            // Exception handling
+            if (b < a || d < c) {
+                throw new CustomException("Invalid input: b should be greater than or equal to a, and d should be greater than or equal to c");
+            }
+
+            // Inheritance - using the derived class
+            MyDerivedCollection collection = new MyDerivedCollection();
+
+            for (int i = 1; i <= 8; i++) {
+                if ((a <= i && i <= b) || (c <= i && i <= d)) {
+                    count++;
+                    collection.addToCollection(i);
+                }
+            }
+
+            // Print result
+            System.out.println("Count: " + count);
+            System.out.println("Elements in the collection: " + collection.getCollection());
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter integers only.");
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            in.close();
+        }
+    }
+}

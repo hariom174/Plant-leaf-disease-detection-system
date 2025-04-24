@@ -1,0 +1,49 @@
+/* Chef organised a 30 kilometres marathon in Chefland.The participants receive medals on completing the 
+   marathon as following:
+   1.If the total time taken is less than 3 hours, they receive a GOLD medal.
+   2.If the total time taken is greater than equal to 3 hours but less than 6 hours, they receive a SILVER medal.
+   3.If the total time taken is greater than equal to 6 hours, they receive a BRONZE medal. */
+
+import java.util.Scanner;
+class Marathon implements Runnable
+{
+	private int x;
+	private Marathon(int x)
+	{
+		this.x=x;
+	}
+	@Override
+    public void run() //Inside the run method of the Marathon class, the Medal method is called
+	{
+        Medal();
+    }
+	private void Medal()
+	{
+		if(x<=3)
+		{
+			System.out.println("Gold medal");
+		}
+		else if(x>=3 && x<6)
+		{
+			System.out.println("Silver medal");
+		}
+		else
+		{
+			System.out.println("Bronze medal:");
+		}
+	}
+}
+class October_Marathon
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number:");
+		int x=in.nextInt();
+	    
+		Runnable marathon=new marathon(x);
+		Thread marathonThread = new Thread(marathon);
+        marathonThread.start();
+	}
+}
+

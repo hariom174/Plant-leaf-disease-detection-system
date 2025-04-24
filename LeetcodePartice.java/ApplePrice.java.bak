@@ -1,0 +1,38 @@
+import java.util.Scanner;
+ class Apple
+{
+   private int a;
+   private int o;
+   private int t;
+   
+   private Apple(int a,int o,int t)
+   {
+	   this.a=a;
+	   this.o=o;
+	   this.t=t;
+   }
+   private void display()
+   {
+	   if((a+o)<=t)
+	   {
+		   System.out.println("Yes");
+	   }
+	   else
+	   {
+		   System.out.println("No");
+	   }
+   }
+   public static void main(String[]args)
+   {
+	   Scanner in=new Scanner(System.in);
+	   System.out.println("Enter the apple:");
+	   int a=in.nextInt();
+	   System.out.println("Enter the orange:");
+	   int o=in.nextInt();
+	   System.out.println("Enter the total:");
+	   int t=in.nextInt();
+	   
+	   Apple a=new Apple(a,o,t);
+	   a.display();
+   }
+}

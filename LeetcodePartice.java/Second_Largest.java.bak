@@ -1,0 +1,46 @@
+/* Three numbers A, B and C are the inputs. Write a program to find second largest among them. */
+
+import java.util.Scanner;
+class Largest
+{
+	public int Secondlargest(int x,int y,int z)
+	{
+		if(x>y && x>z)
+		{
+			return (Math.min(x,Math.max(y,z)));
+		}
+		else if(y>z && y>x)
+		{
+			return (Math.min(y,Math.max(z,x)));
+		}
+		else
+		{
+			return (Math.min(z,Math.max(x,y)));
+		}
+	}
+}
+class A extends Largest
+{
+	@Override
+	public int Secondlargest(int x,int y,int z)
+	{
+		return super.Secondlargest(x,y,z);
+	}
+}
+class Second_Largest
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first numbers:");
+		int x=in.nextInt();
+		System.out.println("Enter the second numbers:");
+		int y=in.nextInt();
+		System.out.println("Enter the third numbers:");
+		int z=in.nextInt();
+		
+		A a=new A();
+		int num=a.Secondlargest(x,y,z);
+		System.out.println("Second_Largest numbers is:"+num);
+	}
+}

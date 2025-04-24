@@ -1,0 +1,64 @@
+/* Chef opened a company which manufactures cars and bikes. Each car requires 4 tyres while each bike requires 
+   2 tyres. Chef has a total of N tyres (N is even). He wants to manufacture maximum number of cars from these 
+   tyres and then manufacture bikes from the remaining tyres.Chef's friend went to Chef to purchase a bike. 
+   If Chef's company has manufactured even a single bike then Chef's friend will be able to purchase it.
+   Determine whether he will be able to purchase the bike or not. */
+
+import java.util.Scanner;
+
+class Cars_Bikes 
+{
+    private int x;
+
+    public Cars_Bikes(int x) 
+	{
+        this.x = x;
+    }
+
+    public static String ManufacturesCars(int x) 
+	{
+        if (x == 0)
+		{
+            return "No";
+        } else 
+		{
+            if (x % 4 != 0) 
+			{
+                return "No";
+            } else 
+			{
+                int cars = x / 4;
+                int remaining = x % 4;
+                if (remaining >= 2) 
+				{
+                    return "Yes";
+                } else 
+				{
+                    return "No";
+                }
+            }
+        }
+    }
+
+    public String display() 
+	{
+        return "Displaying";
+    }
+
+    public static void main(String[] args)
+	{
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the number:");
+        int x = in.nextInt();
+
+        // Create an object of the class and call the ManufacturesCars method
+        Cars_Bikes obj = new Cars_Bikes(x);
+        String result = obj.ManufacturesCars(x);
+        
+        // Display the result
+        System.out.println(result);
+
+        // Call the display method
+        System.out.println(obj.display());
+    }
+}

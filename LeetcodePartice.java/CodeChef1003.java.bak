@@ -1,0 +1,39 @@
+/* Chef is trying to solve a problem having T test cases, where, for each test case he is given a single
+   integer N. 
+   Chef has an algorithm which takes exactly n*n iterations for a test case with value N.
+   The constraints of the problem are as follows:
+   1≤T≤maxT
+   1≤N≤maxN
+   Sum of N over all test cases does not exceed sumN. Given the values maxT,maxN, and sumN, determine 
+   the maximum number of iterations Chef's algorithm can take for any valid input file satisfying all 
+   the constraints.
+   Formally speaking, find the maximum value of 
+   1≤T≤maxT ,1≤Ni≤maxN ,N1+N2+N3+....+NT≤sumN. */
+   
+import java.util.Scanner;
+class algorithm
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int max=in.nextInt();
+		System.out.println("Enter the second number:");
+		int min=in.nextInt();
+		System.out.println("Enter the third number:");
+		int sum=in.nextInt();
+		int q=0;
+		int r=0;
+		
+		if(sum/min>=max)
+		{
+			System.out.println(max*min*sum);
+		}
+		else if(sum/min<max)
+		{
+			q=sum/min;
+			r=sum%min;
+			System.out.println(q*min*min+r*r);
+		}
+	}
+}

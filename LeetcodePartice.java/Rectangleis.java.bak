@@ -1,0 +1,21 @@
+/* Write a program to find the area of rectangle.*/
+
+import java.util.Scanner;
+  public class Rectangle{
+    public static void main(String[]args)
+	{
+	  Scanner in=new Scanner(System.in);
+	  System.out.println("Enter the length of Rectangle:");
+	  int l=in.nextInt();
+	  System.out.println("Enter the Breadth of Rectangle:");
+	  int b=in.nextInt();
+	  
+	  System.out.println("Area of rectangle:"+Area(l,b));
+	}
+	public static int Area(int l,int b)
+	{
+	   System.out.println("Area of rectangle:");
+	    return (l*b);
+	}
+	
+}	

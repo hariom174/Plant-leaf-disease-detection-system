@@ -1,0 +1,16 @@
+ public class Main {
+        // Correct constructor with appropriate parameters
+        Main(int first, int second) {
+            // Any initialization code goes here
+        }
+    
+        Main print() {
+            return this;
+        }
+    
+        public static void main(String... args) {
+            Main fi = new Main(1, 2); // Create an instance of Main with correct arguments
+        }
+    }
+    
+

@@ -1,0 +1,39 @@
+/* Six friends go on a trip and are looking for accommodation. After looking for hours, they find a 
+   hotel which offers two types of rooms — double rooms and triple rooms. A double room costs Rs. X, 
+   while a triple room costs Rs.Y. */
+   
+import java.util.Scanner;
+class Friends
+{
+	protected Friends(int x,int y)//X cost and y cost of rooms
+	{
+		if(x*3>y*2)
+		{
+			System.out.println(y*2);
+		}
+		else
+		{
+			System.out.println(x*3);
+		}
+	}
+}
+class Tripe extends Friends
+{
+	public Tripe(int a,int b)
+	{
+		super(a,b);
+	}
+}
+public class Friends_Tripe
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number of friends:");
+		int a=in.nextInt();
+		System.out.println("Enter the number of rooms");
+		int b=in.nextInt();
+		
+		Tripe t=new Tripe(a,b);
+	}
+}

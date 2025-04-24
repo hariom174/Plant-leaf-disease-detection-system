@@ -1,0 +1,46 @@
+/* Janmansh and Jay are playing a game. They start with a number X and they play a total of Y moves. Janmansh 
+   plays the first move of the game, after which both the players make moves alternatingly.
+   In one move, a player can increment or decrement X by 1.If the final number after performing Y moves is even,
+   then Janmansh wins otherwise, Jay wins. Determine the winner of the game if h the players play optimally. */
+
+import java.util.Scanner;
+class Plays 
+{
+	public Plays()
+	{
+		int a;
+		int b;
+	}
+}
+class Playing implements Runnnable
+{
+	@Override
+	public void dispaly()
+	{
+		if((a+b)%2==0)
+		{
+			System.out.println("Janmansh");
+		}
+		else
+		{
+			System.out.println("Jay");
+		}
+	}
+}
+class Janmansh_Game
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first players:");
+		int a=in.nextInt();
+		System.out.println("Enter the second players:");
+		int b=in.nextInt();
+		
+		Playing p1=new Playing(new MyThread());
+		
+		p1.start(a,b);
+		
+		
+	}
+}

@@ -1,0 +1,51 @@
+/* Chef has a circular pizza and a knife to cut that into pieces. He can only cut the pizza in a way such that 
+   the knife starts from the boundary of the pizza, passes the centre, and ends at the boundary.
+   Find whether Chef an divide the pizza into N pieces using any (possibly zero) number of cuts. */
+
+import java.util.Scanner;
+
+class CircularPizza implements Runnable 
+{  // Use 'implements Runnable' instead of 'extends Runnable'
+    private int n;
+
+    public CircularPizza(int n) 
+	{
+        this.n = n;
+    }
+
+    @Override
+    public void run() 
+	{
+        pizza();  // Use lowercase for method name
+    }
+
+    public void pizza()
+	{  // Use lowercase for method name
+        if (n == 1) 
+		{
+            System.out.println("Yes");
+        } 
+		else if (n % 2 == 0) 
+		{
+            System.out.println("Yes");
+        }
+		else
+		{
+            System.out.println("No");
+        }
+    }
+}
+
+public class Pizza_Cutting // Correct the class declaration and make it 'public'
+{
+    public static void main(String[] args) 
+	{
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the number of pieces");
+        int n = in.nextInt();
+
+        Runnable pieces = new CircularPizza(n);
+        Thread piecesThread = new Thread(pieces);
+        piecesThread.start();  // Use 'start' to start the thread, not 'starts'
+    }
+}

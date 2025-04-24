@@ -1,0 +1,46 @@
+ /* Alice likes numbers which are even, and are a multiple of 7. 
+  Bob likes numbers which are odd, and are a multiple of 9.
+  Alice, Bob, and Charlie find a number A.
+  If Alice likes A, Alice takes home the number.
+  If Bob likes A, Bob takes home the number.
+ If both Alice and Bob don't like the number, Charlie takes it home. */
+
+import java.util.Scanner;
+class Alice
+{
+	public Alice()
+	{
+		f
+	    Scanner in=new Scanner(System.in);
+	    System.out.println("Enter the number:");
+	    int a=in.nextInt();
+	
+      	if((a%2==0) && (a%7==0))
+	    {
+		     System.out.println("Alice");
+	    }
+	    else if((a%2!=0) && (a%9==0))
+	    {
+		    System.out.println("BOb");
+	    }
+	    else
+	   {
+		   System.out.println("Charlie");
+	   }
+	}
+}
+class Bob extends Alice
+{
+	public Bob()
+	{
+		super();
+	}
+}
+public class Favourite_Numbers
+{
+	public static void main(String[]args)
+	{
+		Bob b=new Bob();
+	}
+	
+}

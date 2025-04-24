@@ -1,0 +1,27 @@
+// Java program to demonstrate working of 
+// Object[] toArray() 
+import java.io.*; 
+import java.util.List; 
+import java.util.ArrayList; 
+
+class GfG 
+{ 
+    public static void main (String[] args) 
+    { 
+        // Creating a list of ArrayList
+        List<Integer> list = new ArrayList<Integer>();
+        
+        // Queue<Integer> q = new ArrayDeque<Integer>();
+        
+        // Adding elements to the ArrayList
+        list.add(10); 
+        list.add(15); 
+        list.add(20); 
+        
+        Object[] arr = list.toArray(); 
+
+        // Printing array of objects 
+        for (Object x : arr) 
+            System.out.println(x + " "); 
+    } 
+}

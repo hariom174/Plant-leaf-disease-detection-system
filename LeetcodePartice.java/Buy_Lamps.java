@@ -1,0 +1,52 @@
+/* An electronics shop sells red and blue lamps. A red lamp costs X rupees and a blue lamp costs Y rupees.
+   Chef is going to buy exactly N lamps from this shop. Find the minimum amount of money Chef needs to pay such 
+   that at least K of the lamps bought are red. */
+
+import java.util.Scanner;
+class Buy_Lamps implements Runnable
+{
+	public int n;
+	public int x;
+	public int y;
+	public int z;
+	public Buy_Lamps(int n,int x,int y,int z)
+	{
+		this.n=n;
+		this.x=x;
+		this.y=y;
+		this.z=z;
+	}
+	@Override
+	public void run()
+	{
+		Lampscost();
+	}
+	public void Lampscost()
+	{
+		if(y>z)
+		{
+			System.out.println(x*y+(n-x)*z);
+		}
+		else
+		{
+			System.out.println(n*x);
+		}
+	}
+
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number of lamps:");
+		int n=in.nextInt();
+		System.out.println("Enter the least of the lamp:");
+		int x=in.nextInt();
+		System.out.println("Enter the red lamps:");
+		int y=in.nextInt();
+		System.out.println("Enter the blue lamps:");
+		int z=in.nextInt();
+		
+		Runnable Buylamp=new Buy_Lamps(n,x,y,z);
+		Thread BuylampThread=new Thread(Buylamp);
+		BuylampThread.start();
+	}
+}

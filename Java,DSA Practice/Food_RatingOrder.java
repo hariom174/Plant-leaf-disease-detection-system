@@ -1,0 +1,94 @@
+/* Our Chef has some students in his coding class who are practicing problems. Given the difficulty of the problems 
+   that the students have solved in order, help the Chef identify if they are solving them in non-decreasing order of 
+   difficulty. Non-decreasing means that the values in an array is either increasing or remaining the same, but not 
+   decreasing. That is, the students should not solve a problem with difficulty d1, and then later a problem with 
+   difficulty d2, where d1>d2.
+   Output “Yes” if the problems are attempted in non-decreasing order of difficulty rating and “No” if not. */
+   
+import java.util.Scanner;
+import java.util.Stack;
+
+class Students 
+{
+    int n;
+
+    public Students(int n) 
+	{
+        this.n = n;
+    }
+
+    int getname() 
+	{
+        return n;
+    }
+}
+
+class Students_Particing extends Exception 
+{
+    public Students_Particing(String message) 
+	{
+        super(message);
+    }
+}
+
+interface Attempted 
+{
+    Stack<Integer> Non_decreasing() throws Students_Particing;
+}
+
+class Problem_Letter extends Students implements Attempted 
+{
+    Stack<Integer> res = new Stack<>();
+    int[] arr;
+
+    public Problem_Letter(int n) 
+	{
+        super(n);
+        arr = new int[n];
+    }
+
+    public Stack<Integer> Non_decreasing() throws Students_Particing {
+        boolean temp = true;
+        for (int i = 0; i < arr.length - 1; i++) 
+		{
+            if (arr[i] > arr[i + 1]) 
+			{
+                res.add(0);
+                temp = false;
+                break;
+            }
+        }
+        if (temp) 
+		{
+            res.add(1);
+        }
+        return res;
+    }
+}
+
+public class Food_RatingOrder 
+{
+    public static void main(String[] args) 
+	{
+        Stack<Integer> stack = new Stack<>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the no of elements:");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter x-array of elements:");
+        Problem_Letter p = new Problem_Letter(n);
+
+        for (int i = 0; i < n; i++) 
+		{
+            p.arr[i] = scanner.nextInt();
+        }
+
+        try {
+            Stack<Integer> foodRating = p.Non_decreasing();
+            System.out.println("Food rating: " + foodRating.pop());
+        } catch (Students_Particing e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

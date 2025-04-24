@@ -1,0 +1,56 @@
+/* Dominater and Everule are very competitive, and keep trying to show that they are better at competitive 
+   programming than the other. What better measure is there than their rating?Both of them participated in a 
+   contest. Before the contest, Dominater's rating was R1 and Everule's rating was R2.Dominater's rating changed
+   by D1 in the contest, and Everule's rating changed by D2.
+   Who has the higher final rating after the contest?
+   Print "Dominater" if his rating is higher, and "Everule" if his rating is higher (without the quotes).
+   It is guaranteed they do not have equal ratings at the end of the contest. */
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+class Rivalry
+{
+	int r1;
+	int r2;
+	int d1;
+	int d2;
+	public Rivalry(int r1,int r2,int d1,int d2)
+	{
+		this.r1=r1;
+		this.r2=r2;
+		this.d1=d1;
+		this.d2=d2;
+	}
+	public String Rivalry1()
+	{
+		int a=r1+d1;
+		int b=r2+d2;
+		if(a<b)
+		{
+			return "Everule";
+		}
+		else
+		{
+			return "Dominater";
+		}
+	}
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int r1=in.nextInt();
+		System.out.println("Enter the second number:");
+		int r2=in.nextInt();
+		System.out.println("Enter the third number:");
+		int d1=in.nextInt();
+		System.out.println("Enter the fourth number:");
+		int d2=in.nextInt();
+		
+		List<Rivalry> res=new ArrayList<Integer>();
+		Rivalry re=new Rivalry(r1,r2,d1,d2);
+		System.out.println("Dominater and Everule are very competitive:"+re.Rivalry1);
+		
+	}
+}
+

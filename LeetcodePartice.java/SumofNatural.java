@@ -1,0 +1,23 @@
+/* Write a program to find a natural number in method.*/
+
+import java.util.Scanner;
+ class Natural{
+   public static void main(String[]args)
+   {
+	   int n;
+	   System.out.println("Enter the number:");
+	   Scanner in=new Scanner(System.in);
+	   n=in.nextInt();
+	   
+	   System.out.println("Sum of natural "+n+" number is:"+Addnumber(n));
+   }
+   public static int Addnumber(int n)
+   {
+	   int sum=0;
+	   for(int i=1;i<=n;i++)
+	   {
+		   sum=sum+i;
+	   }
+	   return sum;
+   }
+}

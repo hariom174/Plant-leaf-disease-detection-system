@@ -1,0 +1,44 @@
+/* In Chefland, a valid phone number consists of 5 digits with no leading zeros.For example,98765,10000, and 
+   71023 are valid phone numbers while 04123,9231, and 872310 are not.
+   Chef went to a store and purchased N items, where the cost of each item is X.
+   Find whether the total bill is equivalent to a valid phone number. */
+
+import java.util.Scanner;
+class Phone
+{
+	public String phonenumber(int x,int y)
+	{
+		if((x*y)>=10000 && (x*y)<=99999)
+		{
+			return "yes";
+		}
+		else
+		{
+			return "No";
+	    }
+	}
+}
+class Number extends Phone
+{
+	@Override
+	public String phonenumber(int x,int y)
+	{
+		return super.phonenumber(x,y);
+	}
+}
+class Phone_Number
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first phone number:");
+		int x=in.nextInt();
+		System.out.println("Enter the second phone number:");
+		int y=in.nextInt();
+		
+		Number n=new Number();
+		String res=n.phonenumber(x,y);
+		System.out.println(res);
+	}
+}
+

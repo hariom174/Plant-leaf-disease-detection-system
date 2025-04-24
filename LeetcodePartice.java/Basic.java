@@ -1,0 +1,37 @@
+ /* Rahul’s basic salary is input through the keyboard. His dearness allowance is 50% of basic salary 
+    and house rent allowance is 30% of basic salary. Write a program to calculate his total salary */
+
+import java.text.DecimalFormat;	
+import java.util.Scanner;
+ public class Salary
+ {
+    private int basic;
+	
+	public Salary(int bs)
+	{
+	    this.basic=bs;
+	}
+	void getdisplay()
+	{
+	    int bs=basic;
+		
+		int ds=(bs*50)/100;
+		int hr=(bs*30)/100;
+        int total=bs+ds+hr;
+
+        DecimalFormat dc=new DecimalFormat("0.000");
+        System.out.println("Dearness allowance is:"+dc.format(ds));
+        System.out.println("House rent is:"+dc.format(hr));
+        System.out.println("Total basic salary is:"+dc.format(total));		
+	
+	}
+	public static void main(String[]args)
+	{
+	    Scanner in=new Scanner(System.in);
+		System.out.println("Enter the basic salary:");
+		int bs=in.nextInt();
+		Salary obj=new Salary(bs);
+		
+		obj.getdisplay();
+	}
+ }

@@ -1,0 +1,38 @@
+/* Write a program to obtain a number N and increment its value by 1 if the number is divisible by 
+   otherwise decrement its value by 1. */
+  
+import java.util.Scanner;
+class Increment 
+{
+	public int Divisible(int n)
+	{
+		if(n%4==0)
+		{
+			return n+1;
+		}
+		else
+		{
+			return n-1;
+		}
+	}
+}
+class Decrement
+{
+	public int Divisible(int n)
+	{
+		return super.Divisible(n);
+	}
+}
+class Decrement_Increment
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number:");
+		int n;
+		
+		Decrement d=new Decrement();
+		int res=d.Divisible(n);
+		System.out.println("the number is divisible by:"+res);
+	}
+}

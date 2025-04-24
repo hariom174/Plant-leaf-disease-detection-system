@@ -1,0 +1,64 @@
+/* Chef is standing at coordinate A while Chefina is standing at coordinate B.In one step, Chef can increase or 
+   decrease his coordinate by at most K.Determine the minimum number of steps required by Chef to reach 
+   Chefina. */
+
+import java.util.Scanner;
+class Coordinate 
+{
+	int x;
+	int y;
+	int z;
+	public Coordinate(int x,int y,int z)
+	{
+		this.x=x;
+		this.y=y;
+		this.z=z;
+	}
+}
+class Chefina extends Coordinate
+{
+	public Chefina(int x,int y,int z)
+	{
+		super(x,y,z);
+	}
+	
+	public static int MinimumNumber(int x,int y,int z)
+	{
+		if(x==0)
+		{
+			return 0;
+		}
+		else 
+		{
+			int dist=Math.abs(x-y);
+			int step;
+			if(dist%z==0)
+			{
+				step=dist/2;
+			}
+			else
+			{
+				step=dist/z+1;
+			}
+			return step;
+		}
+		
+	}
+}
+public class Reach_fast
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int x=in.nextInt();
+		System.out.println("Enter the second number:");
+		int y=in.nextInt();
+		System.out.println("Enter the third number:");
+		int z=in.nextInt();
+		
+		Chefina c=new Chefina(x,y,z);
+		int result=Chefina.MinimumNumber(x,y,z);
+		System.out.println(result);
+	}
+}

@@ -1,0 +1,29 @@
+/* They consider a turn to be good if the sum of the numbers on their dice is greater than 6
+   Given that in a particular turn Chef and Chefina got X and Y on their respective dice, find 
+   whether the turn was good. */
+   
+import java.util.Scanner;
+    public class SumNumber {
+     public static void main(String[]args)
+	 {
+	    Scanner in=new Scanner(System.in);
+		System.out.println("Enter the n  number:");
+		int n=in.nextInt();
+		System.out.println("Enter the first number:");
+		int x=in.nextInt();
+		System.out.println("Enter the second number:");
+		int y=in.nextInt();
+		
+		System.out.println("Sum of the number "+Number(x,y));
+	 }
+	 static int Number(int x,int y)
+	 {
+	    for(int i=0;i<=n;i++)
+		{
+		   int sum=x+y;
+           if(sum>n)
+			   return 1;
+        }
+		return 0;
+	 }
+  }

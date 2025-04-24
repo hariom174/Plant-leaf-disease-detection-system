@@ -1,0 +1,72 @@
+ /* CodeChef offers a feature called streak count. A streak is maintained if you solve at least one 
+ problem daily.Om and Addy actively maintain their streaks on CodeChef. Over a span of N consecutive 
+ days, you have observed the count of problems solved by each of them.Your task is to determine the 
+ maximum streak achieved by Om and Addy and find who had the longer maximum streak. */
+ 
+ /* Input Format 
+  � The first line of input will contain a single integer T, denoting the number of test cases.
+  -> Each test case consists of multiple lines of input
+  � The first line of each test case contains an integer N — the number of days.
+  � The second line of each test case contains N space-separated integers, the ith of which is Ai​,
+    representing the problems solved by Om on the ith day.
+  � The third line of each test case contains N space-separated integers, the ith of which is Bi ​,
+    representing the problems solved by Addy on the ith day.
+  */
+  
+import java.util.Scanner;
+public class Maximum
+{
+	public static void main(String[]args)
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter the number:");
+		int n=in.nextInt();
+		int arr1[]=new int[n];
+		
+		int maxAddy=-1,count=0;
+		
+		for(int i=0;i<arr1.length;i++)
+		{
+			arr1[i]=in.nextInt();
+			if(arr1[i]==0)
+			{
+				if(maxAddy<count)
+				{
+					maxAddy=count;
+				}
+				count=0;
+			}
+			else
+			  count++;
+		}
+		if(maxAddy<count)
+		  maxAddy=count;
+	  
+	   int arr2[]=new int[n];
+	   int maxOm=-1;
+	   count=0;
+	   
+	   for(int i=0;i<arr2.length;i++)
+	   {
+		   arr2[i]=in.nextInt();
+		   if(arr2[i]==0)
+		   {
+			   if(maxOm<count)
+			   {
+				   maxOm=count;
+			   }
+			   count =0;
+		  }
+		  else
+			  count++;
+	   }
+	   if(maxAddy<count)
+		   maxAddy=count;
+	   
+	   if(maxAddy==maxOm)
+		   System.out.println("Draw");
+	   else
+	      System.out.println(maxAddy<maxOm?"Addy":"Om");
+	   
+	}
+}

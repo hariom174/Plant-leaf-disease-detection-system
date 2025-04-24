@@ -1,0 +1,60 @@
+/* Write a program to obtain length (L) and breadth (B) of a rectangle and check whether its area is greater or 
+   perimeter is greater or both are equal. */
+   
+import java.util.Scanner;
+
+class perimeter implements Runnable
+{
+	int l;
+	int b;
+	public perimeter(int l,int b)
+	{
+		this.l=l;
+		this.b=b;
+	}
+	
+	@Override
+	public void run()
+	{
+		player();
+	}
+	
+	private void player()
+	{
+		int area=l*b;
+		int peri=area*(l+b);
+		
+		if(peri>area)
+		{
+			System.out.println("peri");
+			System.out.println(peri);
+		}
+		else if(peri==area)
+		{
+			System.out.println("Eql");
+			System.out.println(peri);
+		}
+		else
+		{
+			System.out.println("Area");
+			System.out.println(area);
+		}
+	}
+}
+
+public class Area_Perimeter
+{
+	public static void main(String[]args)
+	{
+		Scanner in = new(System.in);
+		System.out.println("Enter the length of area:");
+		int l = in.nextInt();
+		System.out.println("Enter the length of the perimeter:");
+		int b = in.nextInt();
+		
+		Runnable areas = new perimeter(l,b);
+		Thread areasThread = new Thread(areas);
+		areasThread.start();
+	}
+}
+

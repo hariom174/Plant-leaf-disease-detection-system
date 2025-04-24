@@ -1,0 +1,43 @@
+/* Chef likes to play table tennis. He found some statistics of matches which described who won 
+   the points in order. A game shall be won by the player first scoring 11 points except in the 
+   case when both players have 10 points each, then the game shall be won by the first player 
+   subsequently gaining a lead of 2 points. Could you please help the Chef find out who the winner
+   was from the given statistics? (It is guaranteed that statistics represent always a valid,
+   finished match.)*/
+
+import java.util.function.Function;
+
+@FunctionalInterface
+interface GameResult {
+    String getResult(String s);
+}
+
+class Table Tennis {
+    private final GameResult gameResult;
+
+    public Table Tennis(GameResult gameResult) {
+        this.gameResult = gameResult;
+    }
+
+    public void play(String s) {
+        System.out.println(gameResult.getResult(s));
+    }
+
+    public static void main(String[] args) {
+        // Lambda expression implementing the GameResult interface
+        GameResult determineWinOrLose = s -> {
+            long count = s.chars().filter(c -> c == '1').count();
+            long target = s.chars().filter(c -> c != '1').count();
+            return count > target ? "WIN" : "LOSE";
+        };
+
+        // Create a TableTennis instance using the lambda expression
+        Table Tennis game = new Table Tennis(determineWinOrLose);
+
+        // Example usage
+        java.util.Scanner in = new java.util.Scanner(System.in);
+        String s = in.next();
+        game.play(s);
+        
+    }
+}

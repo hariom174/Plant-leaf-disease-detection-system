@@ -1,0 +1,6 @@
+import java.util.Scanner;
+public class Apple
+{
+   private int a;
+   private int 
+}
